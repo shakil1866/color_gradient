@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body {
+            background-image: linear-gradient(to right, #fd3eb8, #A983BD)
+        }
+
+        section {
+            /* width: 100vh; */
+            height: 100vh;
+            /* background-color: red; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* background-image: linear-gradient(to right top ,#fff,#000,red,blue,green); */
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 30%;
+            /* border: 2px solid red; */
+        }
+
+        #btn1,
+        #btn2 {
+            padding: 10px 25px 10px 25px;
+            border-radius: 20px;
+            margin: 20px 20px 0px 20px;
+        }
+
+        #btn1 {
+            background-color: black;
+            color: rgb(255, 255, 255);
+            border: none;
+            font-weight: 700;
+        }
+
+        #btn2 {
+            background-color: rgb(18, 248, 18);
+            color: black;
+            border:none;
+            font-weight: 800;
+        }
+
+        .line {
+            padding: 10px 20px 25px 10px;
+            border-left: 6px solid white;
+            height: 15px;
+            border-radius: 7px;
+            background-image: linear-gradient(rgba(252, 232, 232, 0.5), rgba(243, 219, 219, 0.5));
+
+        }
+
+
+        #copyCode {
+            /* padding: 20px; */
+            color: white;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="main">
+            <div>
+                <button id="btn1">#F942B9</button>
+                <button id="btn2">#A983BD</button>
+            </div>
+            <h4 style="color: white; padding: 10px;">click here for copy code</h4>
+            <div class="line">
+                <div id="copyCode">
+                    background-image: linear-gradient(to right, #F942B9, #A983BD);
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- js -->
+    <script>
+        let btn1 = document.getElementById('btn1')
+        let btn2 = document.getElementById('btn2')
+        let copyDiv = document.getElementById("copyCode");
+        let rgb1 = "#000";
+        let rgb2 = "#A983BD";
+
+        let HexeValues = () => {
+            let myHexaNum = "0123456789abcdef"
+            let colors = "#"
+            for (let i = 0; i < 6; i++) {
+                colors = colors + myHexaNum[Math.floor(Math.random() * 16)];
+            }
+            return colors;
+        }
+
+        let handleBtn1 = () => {
+            rgb1 = HexeValues();
+            console.log(rgb1);
+
+            document.body.style.backgroundImage = `linear-gradient(to right, ${rgb1},${rgb2})`
+            copyDiv.innerHTML = `background-image: linear-gradient( to right,${rgb1}, ${rgb2})`;
+            btn1.innerHTML = `${rgb1}`;
+
+
+        }
+        let handleBtn2 = () => {
+            rgb2 = HexeValues();
+            console.log(rgb2);
+
+            document.body.style.backgroundImage = `linear-gradient(to right, ${rgb1},${rgb2})`
+            copyDiv.innerHTML = `background-image: linear-gradient( to right,${rgb1}, ${rgb2})`;
+            btn2.innerHTML = `${rgb2}`;
+        }
+
+
+        btn1.addEventListener("click", handleBtn1)
+        btn2.addEventListener("click", handleBtn2)
+    </script>
+</body>
+
+</html>
